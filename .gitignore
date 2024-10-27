@@ -1,0 +1,6 @@
+node_modules
+npm_install_debug.log
+*.png
+log
+cypress/reports/*
+cypress/screenshots/*

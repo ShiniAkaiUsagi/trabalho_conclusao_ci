@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "lint:format": "npx eslint . --fix --config config/eslint.config.js && npx prettier . --write",
-    "lint:check": "npx eslint --config config/eslint.config.js . && npx prettier . --check",
+    "lint:format": "npx eslint . --fix && npx prettier . --write",
+    "lint:check": "npx eslint . && npx prettier . --check",
     "test:e2e": "cypress run"
   },
   "type": "module",
