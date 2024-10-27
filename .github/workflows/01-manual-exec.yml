@@ -8,7 +8,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Configurando Node.js
         uses: actions/setup-node@v2
@@ -18,15 +19,16 @@ jobs:
       - name: Instalando Dependências
         run: npm install
 
-      - uses: actions/checkout@v4
       - name: Inspecionando Projeto (Lint)
         run: npm run lint:check
 
   e2e-tests:
     runs-on: ubuntu-latest
+    needs: inspection
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
       - name: Configurando Node.js
         uses: actions/setup-node@v2
