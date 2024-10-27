@@ -1,26 +1,40 @@
-#nome que vai aparece nas opções da pipe
-name: '01. Execução Manual'
+name: "01. Execução Manual"
 
-#triggers ou gatilhos de execução
-#nesse caso, gatilho manual = workflow_dispatch
 on:
   workflow_dispatch:
 
 jobs:
-  #Descrição do job
-  e2e-tests:
-    #Maquina que o job vai executar
+  inspection:
     runs-on: ubuntu-latest
 
-    #Passo a passo das ações do job
     steps:
       - uses: actions/checkout@v4
+
+      - name: Configurando Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
       - name: Instalando Dependências
         run: npm install
-        
+
       - uses: actions/checkout@v4
       - name: Inspecionando Projeto (Lint)
         run: npm run lint:check
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurando Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Instalando Dependências
+        run: npm install
 
       - name: Testes E2E (end to end)
         run: npm run test:e2e

@@ -1,4 +1,5 @@
 import { defineConfig } from "cypress";
+
 import {
   beforeRunHook,
   afterRunHook,
