@@ -7,17 +7,17 @@ class Login {
   }
 
   verificarSeUsuarioFoiLogado(nome) {
-    cy.get("i.fa-user").parent().should("contain", nome);
+    cy.get('i.fa-user').parent().should('contain', nome);
     return this;
   }
 
   validarMensagemDeErro(mensagem) {
-    cy.get("p").should("contain", mensagem);
+    cy.get('p').should('contain', mensagem);
     return this;
   }
 
   verificarSeUsuarioFoiDeslogado() {
-    cy.contains("Login to your account").should("be.visible");
+    cy.contains('Login to your account').should('be.visible');
     return this;
   }
 }

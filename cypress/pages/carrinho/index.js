@@ -1,8 +1,8 @@
-import checkout from "../checkout";
+import checkout from '../checkout';
 
 class Carrinho {
   acessarTelaCheckout() {
-    cy.get(".btn-default.check_out").should("be.visible").click();
+    cy.get('.btn-default.check_out').should('be.visible').click();
     return checkout;
   }
 }
